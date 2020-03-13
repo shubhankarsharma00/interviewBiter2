@@ -13,6 +13,7 @@
 		<div class="row">
 			<%@interviews = Interview.order("start_time").all()%>
 			<% @interviews.each do |interview|%>
+			<%if interview.start_time != nil%>
 			<div class="col-sm-4">
 				<div class="card mb-4 shadow-sm">
 					<div class="card-body">
@@ -20,11 +21,13 @@
 							<div class="btn-group">
 								<button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href = '<%=interview_path(interview.id)%>'"><%=interview.id%></button>
 							</div>
-							<small class="text-muted"><%= interview.start_time%> to <%= interview.end_time%></small>
+							<small class="text-muted"><%= interview.start_time.to_formatted_s(:long_ordinal)%> to <%= interview.end_time.to_formatted_s(:long_ordinal)%></small>
 						</div>
 					</div>
 				</div>
 			</div>
+
+			<% end %>
 			<% end %>
 		</div>
 	</div>
