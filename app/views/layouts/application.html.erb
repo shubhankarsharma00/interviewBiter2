@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Interview Biter</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <!--Navigation Bar-->
+    <nav class="navbar navbar-light bg-light d-flex">
+      <div class="container">
+        <div class="logo">
+          <a class="navbar-brand" href="/">
+            <%= fa_stacked_icon "map", base: "circle_thin"%>
+            Interview Biter
+          </a>
+        </div>
+        <div class="user-section">
+          <% if admin_signed_in? %>
+            <a href="<%= admin_path(current_admin)%>" data-method="get">
+              <i class="fa fa-user"></i>
+            </a>
+            <a href="<%= destroy_admin_session_path%>" data-method="delete">
+              <i class="fa fa-sign-out" aria-hidden="true"></i>
+            </a>
+          <% else %>
+
+            <a href="<%= new_admin_session_path%>">
+              <i class="fa fa-sign-in"></i>  Admin
+            </a>
+          <% end %>
+        </div>
+      </div>
+    </nav>
+
+    <!--Main content-->
+    <main class="container" style="min-height: 786px">
+      <%= yield %>
+    </main>
+
+    <!--Footer-->
+    <footer class="container footer">
+      <nav class="navbar d-flex">
+        <ul>
+          <li>ABOUT US</li>
+        </ul>
+        <p> © 2018 Interview Biter </p>
+      </nav>
+    </footer>
+  </body>
+</html>
