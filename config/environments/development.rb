@@ -73,8 +73,8 @@ config.action_mailer.delivery_method = :smtp
 config.action_mailer.smtp_settings = {
 address:              'smtp.gmail.com',
 port:                 587,
-domain:               'example.com',
-user_name:            'ib2203',
+domain:               'gmail.com',
+user_name:            'ibit2203@gmail.com',
 password:             'ibib@123',
 authentication:       'plain',
 enable_starttls_auto: true  }
