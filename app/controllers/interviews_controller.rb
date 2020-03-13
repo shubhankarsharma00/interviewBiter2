@@ -13,7 +13,6 @@ class InterviewsController < ApplicationController
 		@end_time = DateTime.new(params["interview"][:"end_time(1i)"].to_i,params["interview"][:"end_time(2i)"].to_i,params["interview"][:"end_time(3i)"].to_i,params["interview"][:"end_time(4i)"].to_i,params["interview"][:"end_time(5i)"].to_i,0)
   
   
-    @interview = Interview.create(start_time: @start_time,end_time: @end_time)
 		participants = params["participants"].split(",")
     participant_interviews = []
     participant_interview_times = []
@@ -46,6 +45,7 @@ class InterviewsController < ApplicationController
     end
     
     if @success == 1
+      @interview = Interview.create(start_time: @start_time,end_time: @end_time)
       participants.each do |participant|
         interview_participants = InterviewParticipant.create(interview_id: @interview.id, participant_id: participant)
         # InterviewParticipantMailer.welcome_email(interview_participants).deliver_now
