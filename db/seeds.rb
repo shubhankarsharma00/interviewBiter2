@@ -9,8 +9,9 @@
 # @participant2 = Participant.find(2)
 # @interview = Interview.find(1)
 
-@participant1 = Participant.create(name: "p1")
-@participant2 = Participant.create(name: "p2")
+@participant1 = Participant.create(name: "shubham")
+@participant2 = Participant.create(name: "mayank")
+@participant3 = Participant.create(name: "shivam")
 @interview = Interview.create(:start_time  => DateTime.new(2009,9,1,17), :end_time    => DateTime.new(2009,9,1,19))
 @interview_participant = InterviewParticipant.create(interview_id: @interview.id,participant_id: @participant1.id)
 @interview_participant = InterviewParticipant.create(interview_id: @interview.id,participant_id: @participant2.id)
