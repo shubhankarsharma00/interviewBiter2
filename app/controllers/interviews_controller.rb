@@ -45,10 +45,11 @@ class InterviewsController < ApplicationController
       @success = 0
     end
     
-    participants.each do |participant|
-      InterviewParticipant.create(interview_id: @interview.id, participant_id: participant)
-    end
     if @success == 1
+      participants.each do |participant|
+        interview_participants = InterviewParticipant.create(interview_id: @interview.id, participant_id: participant)
+        InterviewParticipantMailer.welcome_email(interview_participants).deliver_now
+      end
       puts(@success)
       redirect_to interview_url(@interview.id)
     else
