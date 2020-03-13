@@ -19,7 +19,7 @@
 					<div class="card-body">
 						<div class="d-flex justify-content-between align-items-center">
 							<div class="btn-group">
-								<button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href = '<%=interview_path(interview.id)%>'"><%=interview.id%></button>
+								<button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href = '<%=interview_path(interview.id)%>'">Check Participants</button>
 							</div>
 							<small class="text-muted"><%= interview.start_time.to_formatted_s(:long_ordinal)%> to <%= interview.end_time.to_formatted_s(:long_ordinal)%></small>
 						</div>
