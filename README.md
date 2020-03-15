@@ -1,1 +1,1 @@
-Still working on error handling and mailers.
+Sign Up as admin and enjoy
